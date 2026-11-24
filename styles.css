@@ -28,7 +28,7 @@ body {
   overflow-x: clip;
 }
 img { max-width: 100%; display: block; height: auto; }
-.portada > *, .seccion--problema > *, .prueba > *, .pieza > *, .resultados > * { min-width: 0; }
+.portada > *, .seccion--problema > *, .prueba > *, .pieza > * { min-width: 0; }
 h1, h2, h3 { font-family: "Fredoka", "Nunito", sans-serif; line-height: 1.1; margin: 0; }
 h2 { font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 700; color: var(--morado); }
 h3 { font-size: 1.45rem; font-weight: 600; }
@@ -180,11 +180,6 @@ a { color: inherit; }
   content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 26%;
   background: var(--lila); clip-path: path("M0,18 Q80,0 160,18 T330,18 V200 H0Z");
 }
-.tarjeta__pensar {
-  position: absolute; left: 10px; bottom: 10px; z-index: 2; display: flex; align-items: flex-start;
-  font: 700 1.4rem "Fredoka", sans-serif; color: var(--sol); -webkit-text-stroke: 1px var(--tinta);
-}
-.tarjeta__pensar svg { width: 62px; height: 52px; }
 .tarjeta__reverso { transform: rotateY(180deg); display: flex; flex-direction: column; align-items: center; text-align: center; padding: 22px 18px; }
 .tarjeta.volteada .tarjeta__frente { transform: rotateY(-180deg); }
 .tarjeta.volteada .tarjeta__reverso { transform: rotateY(0); }
@@ -241,34 +236,6 @@ a { color: inherit; }
 .galeria img { border-radius: 10px; border: 2px solid var(--tinta); background: var(--crema); aspect-ratio: 1; object-fit: cover; }
 .figura--planos img { box-shadow: none; }
 
-/* resultados */
-.seccion--resultados { background: var(--morado); color: var(--crema); max-width: none; }
-.seccion--resultados > * { max-width: var(--ancho); margin-left: auto; margin-right: auto; }
-.seccion--resultados h2 { color: var(--sol); }
-.resultados { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(28px, 5vw, 64px); align-items: start; }
-.grafica { background: var(--crema); color: var(--tinta); border: 3px solid var(--tinta); border-radius: var(--radio); padding: 28px; box-shadow: 6px 6px 0 var(--tinta); }
-.grafica__nota { font-size: .95rem; margin: 8px 0 26px; }
-.grafica__barras { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; height: 260px; align-items: end; border-bottom: 3px solid var(--tinta); }
-.grafica__meta {
-  position: absolute; left: 0; right: 0; bottom: calc(var(--a) / 40 * 100%); height: calc((var(--b) - var(--a)) / 40 * 100%);
-  background: color-mix(in srgb, var(--sol) 45%, transparent); border-block: 2px dashed var(--tinta);
-}
-.grafica__meta span { position: absolute; left: 6px; top: 2px; font-size: .8rem; font-weight: 800; }
-.barra-g {
-  position: relative; height: calc(var(--v) / 40 * 100%); background: var(--rosa); border: 3px solid var(--tinta); border-bottom: 0;
-  border-radius: 12px 12px 0 0; transform-origin: bottom; transform: scaleY(var(--s, 1)); transition: transform .9s cubic-bezier(.2,.8,.2,1);
-}
-.barra-g__v { position: absolute; top: -34px; left: 0; right: 0; text-align: center; font: 700 1.3rem "Fredoka", sans-serif; }
-.barra-g__l { position: absolute; bottom: -34px; left: -10px; right: -10px; text-align: center; font-size: .9rem; font-weight: 700; }
-.grafica { padding-bottom: 54px; }
-.comprobado { list-style: none; padding: 0; margin: 0; display: grid; gap: 18px; }
-.comprobado li { position: relative; padding-left: 44px; font-size: 1.1rem; }
-.comprobado li::before {
-  content: ""; position: absolute; left: 0; top: 2px; width: 28px; height: 28px; border-radius: 50%;
-  background: var(--sol) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%232A1B3D' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/70% no-repeat;
-  border: 2px solid var(--tinta);
-}
-.comprobado strong { color: var(--sol); }
 
 /* video */
 .video__marco {
@@ -277,18 +244,31 @@ a { color: inherit; }
 }
 .video__marco video { display: block; width: 100%; height: 100%; object-fit: cover; }
 
+/* cartas del final */
+.cartas-lista { list-style: none; padding: 0; margin: 0 0 18px; display: grid; gap: 10px; }
+.cartas-lista li {
+  padding: 10px 14px 10px 18px; background: var(--crema); border: 2px solid var(--tinta);
+  border-left: 10px solid var(--c); border-radius: 14px; line-height: 1.45;
+}
+.cartas-lista strong { font: 600 1.08rem "Fredoka", sans-serif; color: var(--tinta); }
+
 /* pie */
 .pie {
-  display: flex; gap: 24px; align-items: center; padding: 48px clamp(16px, 4vw, 48px) 64px;
-  max-width: var(--ancho); margin: 0 auto; border-top: 3px solid var(--tinta);
+  background: var(--crema); color: var(--tinta); border-top: 4px solid var(--tinta); margin-top: clamp(40px, 6vw, 80px);
+  display: flex; gap: clamp(20px, 4vw, 44px); align-items: center; justify-content: center;
+  padding: clamp(40px, 6vw, 64px) clamp(16px, 4vw, 48px);
 }
-.pie__mosca { width: 110px; height: 92px; flex: none; }
-.pie__nombre { font: 700 1.5rem "Fredoka", sans-serif; color: var(--morado); margin-bottom: 4px; }
-.pie p { margin-bottom: 4px; }
+.pie__mosca { width: 132px; height: 110px; flex: none; transform: rotate(-8deg); }
+.pie__texto p { margin: 0; }
+.pie__titulo { font: 600 .95rem "Nunito", sans-serif; letter-spacing: .02em; color: var(--morado); text-transform: none; }
+.pie__carrera { font: 700 clamp(1.4rem, 3vw, 2rem)/1.15 "Fredoka", sans-serif; color: var(--morado); margin: 2px 0 10px !important; }
+.pie__autora { font: 600 1.25rem "Fredoka", sans-serif; }
+.pie__escuela { font-weight: 700; color: var(--morado-osc); }
+@media (max-width: 560px) { .pie { flex-direction: column; text-align: center; } }
 
 /* ---------- celular ---------- */
 @media (max-width: 900px) {
-  .portada, .seccion--problema, .prueba, .pieza, .pieza--invertida, .resultados { grid-template-columns: 1fr; }
+  .portada, .seccion--problema, .prueba, .pieza, .pieza--invertida { grid-template-columns: 1fr; }
   .pieza--invertida .figura { order: 0; }
   .portada { min-height: auto; }
   .portada__vuelo { max-width: 420px; justify-self: center; width: 100%; }

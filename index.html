@@ -56,7 +56,6 @@
     <a href="#juego">Cómo se juega</a>
     <a href="#prueba">Pruébalo</a>
     <a href="#diseno">El diseño</a>
-    <a href="#resultados">Resultados</a>
     <a href="#video">Video</a>
   </nav>
 </header>
@@ -131,7 +130,6 @@
         <div class="tarjeta" id="tarjeta" aria-live="polite">
           <div class="tarjeta__cara tarjeta__frente">
             <img id="tarjeta-img" src="img/tarjetas/02.jpg" alt="">
-            <span class="tarjeta__pensar" id="tarjeta-pensar" hidden><svg><use href="#mosca"/></svg>?</span>
           </div>
           <div class="tarjeta__cara tarjeta__reverso" id="tarjeta-reverso"></div>
         </div>
@@ -164,18 +162,18 @@
       <div>
         <h3>Tarjetas</h3>
         <p>Al frente, solo el dibujo: nada de color ni texto que dé pistas. Atrás, el bote con su color y su ícono, el nombre y por qué va ahí, en 11 palabras o menos.</p>
-        <p>Las tarjetas difíciles llevan a la mosca pensando. Son las que cambian de bote según cómo se usaron, como la caja de pizza limpia y la servilleta con comida.</p>
       </div>
     </article>
 
     <div class="galeria" id="galeria" aria-label="Las 20 tarjetas del prototipo"></div>
 
     <article class="pieza pieza--invertida">
-      <figure class="figura"><img src="img/botes-3d.jpg" alt="Los cuatro botes impresos en 3D y los cuatro peones de colores." loading="lazy" width="1260" height="520"></figure>
+      <figure class="figura"><img src="img/piezas.jpg" alt="Los cuatro botes con su etiqueta y una tarjeta adentro, los cuatro peones de formas distintas, la mosca y el dado." loading="lazy" width="1560" height="640"></figure>
       <div>
-        <h3>Botes y peones</h3>
-        <p>Los botes usan los colores de la norma: beige, azul, verde y naranja, cada uno con su ícono para quien no distingue bien los colores. Se imprimen en 3D y la tarjeta entra parada, con 3.5 mm de holgura por lado.</p>
-        <p>Los peones son iguales en forma y cambian de color, con un símbolo en la punta.</p>
+        <h3>Botes, peones y mosca</h3>
+        <p>Cada jugador tiene cuatro botes impresos en 3D, del color que marca la norma: amarillo para papel y cartón, azul para plástico, verde para orgánicos y naranja para no reciclables. Al frente llevan una muesca para sacar las tarjetas y una etiqueta con el ícono y el nombre, para quien no distingue bien los colores.</p>
+        <p>Los peones cambian de forma y de color: círculo rojo, estrella amarilla, triángulo blanco y cuadrado lila. Así cada quien reconoce el suyo de un vistazo, y caben cuatro en una casilla.</p>
+        <p>La mosca es la ficha rosa. Va por su propio camino y avanza cada vez que alguien se equivoca.</p>
       </div>
     </article>
 
@@ -183,7 +181,14 @@
       <figure class="figura"><img src="img/cartas-final.jpg" alt="Las cuatro cartas de transformación, por el frente y por el reverso." loading="lazy" width="1400" height="963"></figure>
       <div>
         <h3>Cartas del final</h3>
-        <p>Cuatro cartas boca abajo en el tablero. Al terminar se voltean y cuentan en qué se convierte lo que separaste: papel nuevo, botellas e hilo para ropa, abono. Los no reciclables no se vuelven nada nuevo, y por eso conviene tirar menos.</p>
+        <p>En el centro del tablero hay cuatro cartas boca abajo, una por cada bote. No dan puntos ni cambian quién gana: se voltean cuando termina la partida y cuentan qué pasa con lo que separaste bien.</p>
+        <ul class="cartas-lista">
+          <li style="--c:var(--papel)"><strong>Papel y cartón.</strong> Se deshacen en agua y sus fibras forman papel y cartón nuevos.</li>
+          <li style="--c:var(--plastico)"><strong>Plástico.</strong> Las botellas se muelen y se vuelven botellas nuevas, láminas o hilo para ropa.</li>
+          <li style="--c:var(--organico)"><strong>Orgánicos.</strong> En una planta de composta se descomponen y se vuelven abono para la tierra.</li>
+          <li style="--c:var(--norec)"><strong>No reciclables.</strong> No se vuelven algo nuevo: se queman en hornos para dar energía. Por eso conviene generar menos.</li>
+        </ul>
+        <p>Así el juego cierra mostrando para qué sirve separar: lo que juntaste en tus botes se convierte en algo nuevo.</p>
       </div>
     </article>
 
@@ -201,30 +206,6 @@
     </figure>
   </section>
 
-  <section id="resultados" class="seccion seccion--resultados">
-    <h2>Resultados</h2>
-    <p class="seccion__intro">Antes de jugar con niños, el prototipo se probó en escritorio: una simulación de partidas, las medidas de cada pieza y una revisión del color y de la norma.</p>
-    <div class="resultados">
-      <div class="grafica" role="img" aria-label="Con 20 por ciento de errores, la mosca gana el 19 por ciento de las partidas con 2 jugadores, el 20 con 3 y el 19 con 4.">
-        <h3>¿Cuántas veces gana la mosca?</h3>
-        <p class="grafica__nota">Con 20 % de errores, en 20,000 partidas simuladas por caso. La meta era entre 10 y 25 %.</p>
-        <div class="grafica__barras">
-          <div class="grafica__meta" style="--a:10;--b:25"><span>meta</span></div>
-          <div class="barra-g" style="--v:19"><span class="barra-g__v">19 %</span><span class="barra-g__l">2 jugadores</span></div>
-          <div class="barra-g" style="--v:20"><span class="barra-g__v">20 %</span><span class="barra-g__l">3 jugadores</span></div>
-          <div class="barra-g" style="--v:19"><span class="barra-g__v">19 %</span><span class="barra-g__l">4 jugadores</span></div>
-        </div>
-      </div>
-      <ul class="comprobado">
-        <li>Una partida dura <strong>10 a 11 rondas</strong>, y el mazo de 40 tarjetas no se acabó en ninguna.</li>
-        <li>Los 20 reversos tienen <strong>11 palabras o menos</strong>, con un contraste de 14.4:1.</li>
-        <li>Caben <strong>4 peones</strong> en cada casilla y todo cabe en la caja.</li>
-        <li>Cada tarjeta se revisó contra la <strong>norma NADF-024</strong>; cuatro se cambiaron.</li>
-        <li>Fabricar un juego cuesta <strong>$1,070.67</strong> en materiales y armado.</li>
-      </ul>
-    </div>
-  </section>
-
   <section id="video" class="seccion seccion--videos">
     <h2>El juego en un minuto</h2>
     <p class="seccion__intro">Qué problema atiende, cómo se juega y qué trae la caja.</p>
@@ -240,9 +221,11 @@
 
 <footer class="pie">
   <svg class="pie__mosca" aria-hidden="true"><use href="#mosca"/></svg>
-  <div>
-    <p class="pie__nombre">¡Que no llegue la mosca!</p>
-    <p>Proyecto de titulación de Diseño Industrial, 2026. Ciudad de México.</p>
+  <div class="pie__texto">
+    <p class="pie__titulo">Proyecto de Titulación</p>
+    <p class="pie__carrera">Diseño de Productos y Experiencias</p>
+    <p class="pie__autora">Daniela Barros Ramírez</p>
+    <p class="pie__escuela">Universidad Iberoamericana · 2026</p>
   </div>
 </footer>
 

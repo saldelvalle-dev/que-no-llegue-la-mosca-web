@@ -104,25 +104,10 @@ const LLEGADA = 14;
   });
 })();
 
-/* ---------- la gráfica crece cuando aparece ---------- */
-(function grafica() {
-  const barras = [...document.querySelectorAll(".barra-g")];
-  if (reduceMotion) return;
-  barras.forEach((b) => b.style.setProperty("--s", 0));
-  const io = new IntersectionObserver((e) => {
-    if (e.some((x) => x.isIntersecting)) {
-      barras.forEach((b, i) => setTimeout(() => b.style.setProperty("--s", 1), i * 140));
-      io.disconnect();
-    }
-  }, { threshold: 0.4 });
-  io.observe(document.querySelector(".grafica"));
-})();
-
 /* ---------- pruébalo: la demo jugable ---------- */
 (function demo() {
   const tarjeta = document.getElementById("tarjeta");
   const img = document.getElementById("tarjeta-img");
-  const pensar = document.getElementById("tarjeta-pensar");
   const reverso = document.getElementById("tarjeta-reverso");
   const aviso = document.getElementById("aviso");
   const otra = document.getElementById("otra");
@@ -163,10 +148,9 @@ const LLEGADA = 14;
     tarjeta.classList.remove("volteada", "salida");
     img.src = `img/tarjetas/${actual.num}.jpg`;
     img.alt = `Tarjeta: ${actual.nombre}`;
-    pensar.hidden = actual.nivel !== "P";
     pintarReverso(actual);
     botes.forEach((b) => { b.disabled = false; b.classList.remove("elegido", "correcto", "atenuado"); });
-    aviso.textContent = actual.nivel === "P" ? "Esta es para pensar." : "";
+    aviso.textContent = "";
     aviso.className = "prueba__aviso";
     otra.hidden = true;
     if (!reduceMotion) { tarjeta.classList.remove("entra"); void tarjeta.offsetWidth; tarjeta.classList.add("entra"); }
