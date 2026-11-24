@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>¡Que no llegue la mosca! · Juego de mesa para separar residuos</title>
+<meta name="description" content="Juego de mesa para niñas y niños de 7 a 10 años que enseña a separar residuos según la norma de la Ciudad de México. Si te equivocas, la mosca se acerca.">
+<meta property="og:title" content="¡Que no llegue la mosca!">
+<meta property="og:description" content="Un juego de mesa para aprender a separar la basura. Si te equivocas, la mosca se acerca.">
+<meta property="og:image" content="img/caja.jpg">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="mosca" viewBox="-135 -112 290 240">
+      <g class="ala ala-d"><path d="M10,-30 C50,-92 130,-96 136,-52 C140,-14 70,-4 10,-12Z" fill="#fff" fill-opacity=".85" stroke="#2A1B3D" stroke-width="7" stroke-linejoin="round"/></g>
+      <g class="ala ala-i"><path d="M-20,-30 C-60,-76 -122,-70 -120,-38 C-118,-8 -64,-4 -20,-14Z" fill="#fff" fill-opacity=".85" stroke="#2A1B3D" stroke-width="7" stroke-linejoin="round"/></g>
+      <g fill="none" stroke="#2A1B3D" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M-30,74 L-40,104 L-56,112"/><path d="M6,82 L10,116"/><path d="M40,70 L58,98 L76,104"/></g>
+      <path d="M-76,-22 C-86,-86 20,-106 66,-66 C104,-30 96,46 54,76 C14,102 -64,92 -82,42 C-94,16 -70,-4 -76,-22Z" fill="#5B2A86" stroke="#2A1B3D" stroke-width="8" stroke-linejoin="round"/>
+      <path d="M-70,-40 C-78,-90 -8,-100 -4,-52 C0,-10 -62,-2 -70,-40Z" fill="#F27BA8" stroke="#2A1B3D" stroke-width="7"/>
+      <circle cx="34" cy="-50" r="27" fill="#F27BA8" stroke="#2A1B3D" stroke-width="7"/>
+      <circle cx="-36" cy="-46" r="17" fill="#fff" stroke="#2A1B3D" stroke-width="5"/>
+      <circle cx="36" cy="-46" r="12" fill="#fff" stroke="#2A1B3D" stroke-width="5"/>
+      <circle cx="-28" cy="-54" r="8" fill="#2A1B3D"/><circle cx="41" cy="-52" r="6" fill="#2A1B3D"/>
+      <path d="M-4,-8 Q4,14 22,18 Q30,20 28,10 Q14,6 8,-10Z" fill="#CBB8F0" stroke="#2A1B3D" stroke-width="6" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="bote" viewBox="0 0 120 140">
+      <rect x="14" y="18" width="92" height="14" rx="6" fill="currentColor" stroke="#2A1B3D" stroke-width="5"/>
+      <rect x="46" y="8" width="28" height="12" rx="5" fill="currentColor" stroke="#2A1B3D" stroke-width="5"/>
+      <path d="M22,34 L98,34 L90,132 L30,132Z" fill="currentColor" stroke="#2A1B3D" stroke-width="5" stroke-linejoin="round"/>
+      <circle cx="60" cy="80" r="25" fill="#FBF3E4" stroke="#2A1B3D" stroke-width="4"/>
+    </symbol>
+    <symbol id="i-papel" viewBox="-20 -20 40 40"><path d="M-10,-14 L5,-14 L11,-8 L11,14 L-10,14Z M5,-14 L5,-8 L11,-8" fill="#fff" stroke="#2A1B3D" stroke-width="3" stroke-linejoin="round"/><path d="M-5,-2 H6 M-5,4 H6" stroke="#2A1B3D" stroke-width="2.5"/></symbol>
+    <symbol id="i-plastico" viewBox="-20 -20 40 40"><path d="M-4,-16 H4 V-11 C10,-7 10,-3 10,0 V14 H-10 V0 C-10,-3 -10,-7 -4,-11Z" fill="#fff" stroke="#2A1B3D" stroke-width="3" stroke-linejoin="round"/></symbol>
+    <symbol id="i-organico" viewBox="-20 -20 40 40"><path d="M0,14 C-14,8 -14,-10 0,-14 C14,-10 14,8 0,14Z" fill="#fff" stroke="#2A1B3D" stroke-width="3"/><path d="M0,14 V-9" stroke="#2A1B3D" stroke-width="2.5"/></symbol>
+    <symbol id="i-norec" viewBox="-20 -20 40 40"><circle r="13" fill="#fff" stroke="#2A1B3D" stroke-width="3"/><path d="M-7,-7 L7,7 M7,-7 L-7,7" stroke="#2A1B3D" stroke-width="3.5" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
+
+<!-- El camino de la mosca: avanza mientras bajas por la página -->
+<div class="camino" aria-hidden="true">
+  <div class="camino__puntos"></div>
+  <svg class="camino__mosca"><use href="#mosca"/></svg>
+</div>
+
+<header class="barra">
+  <a class="barra__logo" href="#inicio">¡Que no llegue la m<span class="ojo-mini"></span>sca!</a>
+  <nav class="barra__nav" aria-label="Secciones">
+    <a href="#problema">El problema</a>
+    <a href="#juego">Cómo se juega</a>
+    <a href="#prueba">Pruébalo</a>
+    <a href="#diseno">El diseño</a>
+    <a href="#resultados">Resultados</a>
+    <a href="#videos">Videos</a>
+  </nav>
+</header>
+
+<main id="inicio">
+
+  <section class="portada">
+    <div class="portada__texto">
+      <h1 class="logo">
+        <span class="logo__l1">¡Que no</span>
+        <span class="logo__l2">llegue</span>
+        <span class="logo__l3">la m<span class="ojo" aria-hidden="true"></span><span class="sr">o</span>sca!</span>
+      </h1>
+      <p class="portada__bajada">Un juego de mesa para niñas y niños de 7 a 10 años. Separas la basura en tus cuatro botes y, si te equivocas, la mosca se acerca. Si llega, pierden todos.</p>
+      <div class="portada__botones">
+        <a class="boton boton--sol" href="#prueba">Prueba una tarjeta</a>
+        <a class="boton boton--linea" href="#videos">Ver los videos</a>
+      </div>
+      <p class="portada__datos">2 a 4 jugadores, de 7 años en adelante, partidas de 20 a 30 minutos. Categorías de la norma NADF-024 de la Ciudad de México.</p>
+    </div>
+    <div class="portada__vuelo" aria-hidden="true">
+      <svg class="vuelo" viewBox="0 0 520 520">
+        <path id="ruta" d="M70,470 C40,330 120,250 200,280 C300,318 260,150 360,120 C430,100 470,170 442,214" fill="none" stroke="#5B2A86" stroke-width="4" stroke-dasharray="2 14" stroke-linecap="round"/>
+        <g class="vuelo__bote" transform="translate(372,262)"><use href="#bote" width="140" height="163" style="color:#6CC24A"/><use href="#i-organico" x="40" y="57" width="60" height="60"/></g>
+        <g id="vuelo-mosca" class="vuelo__mosca"><use href="#mosca" x="-85" y="-74" width="170" height="141"/></g>
+      </svg>
+    </div>
+  </section>
+
+  <section id="problema" class="seccion seccion--problema">
+    <div class="seccion__col">
+      <h2>La basura llega revuelta</h2>
+      <p class="grande">En México se tiran unas 120 mil toneladas de residuos al día. Casi el 78 % se podría aprovechar, pero solo el 5 % llega separado <span class="fuente">(SEMARNAT, 2020)</span>.</p>
+      <p>Cuando algo se tira en el bote equivocado, ensucia o se revuelve con materiales que sí se podían reciclar, y parte de ellos ya no se recupera. A eso se le llama <strong>contaminación cruzada</strong>, y es el tema de este juego.</p>
+      <p>Saber qué va en cada bote no basta para hacerlo bien. Hace falta practicar la decisión muchas veces y ver qué pasa cuando te equivocas. Eso es lo que hace el juego.</p>
+    </div>
+    <figure class="figura figura--ancha">
+      <img src="img/mapa-problema.jpg" alt="Mapa del problema: los residuos llegan mezclados por cuatro razones: personas, objetos, sistema y educación." loading="lazy" width="1600" height="900">
+    </figure>
+  </section>
+
+  <section id="juego" class="seccion seccion--juego">
+    <h2>Cómo se juega</h2>
+    <p class="seccion__intro">Cada jugador tiene su propia estación de cuatro botes. En tu turno tiras el dado y avanzas. Si caes en una casilla morada, tomas una tarjeta y la separas.</p>
+    <ol class="pasos">
+      <li><span class="pasos__n">1</span><h3>Ve</h3><p>Mira el dibujo del residuo.</p></li>
+      <li><span class="pasos__n">2</span><h3>Elige</h3><p>Di en qué bote va, antes de ver la respuesta.</p></li>
+      <li><span class="pasos__n">3</span><h3>Voltea</h3><p>Atrás dice a qué bote va y por qué.</p></li>
+      <li><span class="pasos__n">4</span><h3>Revisa</h3><p>Si acertaste, la tarjeta se queda en tu bote.</p></li>
+    </ol>
+    <div class="error">
+      <svg class="error__mosca" aria-hidden="true"><use href="#mosca"/></svg>
+      <div>
+        <h3>Si te equivocas</h3>
+        <p>La tarjeta y todo lo que tenías en ese bote se van a tarjetas perdidas, y la mosca avanza una casilla. Un error echa a perder lo que ya estaba bien separado, igual que en la vida real.</p>
+        <p>Gana quien junte más tarjetas. Pero si la mosca llega al final de su camino, pierden todos.</p>
+      </div>
+    </div>
+    <figure class="figura figura--tablero">
+      <img src="img/tablero.jpg" alt="El tablero: un camino de INICIO a META por la orilla, el camino de la mosca por dentro, la planta de reciclaje al centro y los huecos de las cartas." loading="lazy" width="1400" height="1400">
+      <figcaption>El tablero mide 49.9 × 49.9 cm. Los jugadores van por la orilla; la mosca, por los círculos rosas de adentro.</figcaption>
+    </figure>
+  </section>
+
+  <section id="prueba" class="seccion seccion--prueba">
+    <div class="prueba__cabeza">
+      <h2>Pruébalo</h2>
+      <p>Elige el bote donde va cada tarjeta. Si te equivocas, la mosca avanza.</p>
+    </div>
+    <div class="prueba">
+      <div class="prueba__mesa">
+        <div class="tarjeta" id="tarjeta" aria-live="polite">
+          <div class="tarjeta__cara tarjeta__frente">
+            <img id="tarjeta-img" src="img/tarjetas/02.jpg" alt="">
+            <span class="tarjeta__pensar" id="tarjeta-pensar" hidden><svg><use href="#mosca"/></svg>?</span>
+          </div>
+          <div class="tarjeta__cara tarjeta__reverso" id="tarjeta-reverso"></div>
+        </div>
+        <p class="prueba__aviso" id="aviso" role="status"></p>
+      </div>
+      <div class="prueba__lado">
+        <div class="botes" role="group" aria-label="Elige un bote">
+          <button class="bote" data-cat="papel" style="--c:#F2C75C"><svg><use href="#bote"/><use href="#i-papel" x="31" y="45" width="48" height="48"/></svg><span>Papel y cartón</span></button>
+          <button class="bote" data-cat="plastico" style="--c:#1F5FA8"><svg><use href="#bote"/><use href="#i-plastico" x="31" y="45" width="48" height="48"/></svg><span>Plástico</span></button>
+          <button class="bote" data-cat="organico" style="--c:#6CC24A"><svg><use href="#bote"/><use href="#i-organico" x="31" y="45" width="48" height="48"/></svg><span>Orgánicos</span></button>
+          <button class="bote" data-cat="norec" style="--c:#FF6720"><svg><use href="#bote"/><use href="#i-norec" x="31" y="45" width="48" height="48"/></svg><span>No reciclables</span></button>
+        </div>
+        <div class="marcador">
+          <p><strong id="aciertos">0</strong> bien separadas</p>
+          <div class="pista" aria-label="Camino de la mosca">
+            <ol class="pista__puntos" id="pista"></ol>
+          </div>
+          <button class="boton boton--sol" id="otra" hidden>Otra tarjeta</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="diseno" class="seccion seccion--diseno">
+    <h2>El diseño</h2>
+    <p class="seccion__intro">Todo el juego sale de una misma identidad: un morado que protagoniza, formas redondas con contorno oscuro y una mosca simpática, nunca asquerosa.</p>
+
+    <article class="pieza">
+      <figure class="figura"><img src="img/tarjeta.jpg" alt="Una tarjeta por el frente y por el reverso: caja de pizza limpia, papel y cartón." loading="lazy" width="1200" height="832"></figure>
+      <div>
+        <h3>Tarjetas</h3>
+        <p>Al frente, solo el dibujo: nada de color ni texto que dé pistas. Atrás, el bote con su color y su ícono, el nombre y por qué va ahí, en 11 palabras o menos.</p>
+        <p>Las tarjetas difíciles llevan a la mosca pensando. Son las que cambian de bote según cómo se usaron, como la caja de pizza limpia y la servilleta con comida.</p>
+      </div>
+    </article>
+
+    <div class="galeria" id="galeria" aria-label="Las 20 tarjetas del prototipo"></div>
+
+    <article class="pieza pieza--invertida">
+      <figure class="figura"><img src="img/botes-3d.jpg" alt="Los cuatro botes impresos en 3D y los cuatro peones de colores." loading="lazy" width="1260" height="520"></figure>
+      <div>
+        <h3>Botes y peones</h3>
+        <p>Los botes usan los colores de la norma: beige, azul, verde y naranja, cada uno con su ícono para quien no distingue bien los colores. Se imprimen en 3D y la tarjeta entra parada, con 3.5 mm de holgura por lado.</p>
+        <p>Los peones son iguales en forma y cambian de color, con un símbolo en la punta.</p>
+      </div>
+    </article>
+
+    <article class="pieza">
+      <figure class="figura"><img src="img/cartas-final.jpg" alt="Las cuatro cartas de transformación, por el frente y por el reverso." loading="lazy" width="1400" height="963"></figure>
+      <div>
+        <h3>Cartas del final</h3>
+        <p>Cuatro cartas boca abajo en el tablero. Al terminar se voltean y cuentan en qué se convierte lo que separaste: papel nuevo, botellas e hilo para ropa, abono. Los no reciclables no se vuelven nada nuevo, y por eso conviene tirar menos.</p>
+      </div>
+    </article>
+
+    <article class="pieza pieza--invertida">
+      <figure class="figura"><img src="img/caja.jpg" alt="La tapa de la caja: el nombre, la mosca volando y los cuatro botes." loading="lazy" width="1400" height="889"></figure>
+      <div>
+        <h3>Caja</h3>
+        <p>Una caja de 44 × 27.8 cm, forrada con una sola pieza impresa. Adentro caben el tablero doblado y los 16 botes acostados en una capa.</p>
+      </div>
+    </article>
+
+    <figure class="figura figura--planos">
+      <img src="img/planos.jpg" alt="Planos técnicos con medidas de la tarjeta, el bote, el peón, el tablero y el forro de la caja." loading="lazy" width="1600" height="1000">
+      <figcaption>Planos del prototipo. Medidas en milímetros.</figcaption>
+    </figure>
+  </section>
+
+  <section id="resultados" class="seccion seccion--resultados">
+    <h2>Resultados</h2>
+    <p class="seccion__intro">Antes de jugar con niños, el prototipo se probó en escritorio: una simulación de partidas, las medidas de cada pieza y una revisión del color y de la norma.</p>
+    <div class="resultados">
+      <div class="grafica" role="img" aria-label="Con 20 por ciento de errores, la mosca gana el 19 por ciento de las partidas con 2 jugadores, el 20 con 3 y el 19 con 4.">
+        <h3>¿Cuántas veces gana la mosca?</h3>
+        <p class="grafica__nota">Con 20 % de errores, en 20,000 partidas simuladas por caso. La meta era entre 10 y 25 %.</p>
+        <div class="grafica__barras">
+          <div class="grafica__meta" style="--a:10;--b:25"><span>meta</span></div>
+          <div class="barra-g" style="--v:19"><span class="barra-g__v">19 %</span><span class="barra-g__l">2 jugadores</span></div>
+          <div class="barra-g" style="--v:20"><span class="barra-g__v">20 %</span><span class="barra-g__l">3 jugadores</span></div>
+          <div class="barra-g" style="--v:19"><span class="barra-g__v">19 %</span><span class="barra-g__l">4 jugadores</span></div>
+        </div>
+      </div>
+      <ul class="comprobado">
+        <li>Una partida dura <strong>10 a 11 rondas</strong>, y el mazo de 40 tarjetas no se acabó en ninguna.</li>
+        <li>Los 20 reversos tienen <strong>11 palabras o menos</strong>, con un contraste de 14.4:1.</li>
+        <li>Caben <strong>4 peones</strong> en cada casilla y todo cabe en la caja.</li>
+        <li>Cada tarjeta se revisó contra la <strong>norma NADF-024</strong>; cuatro se cambiaron.</li>
+        <li>Fabricar un juego cuesta <strong>$1,070.67</strong> en materiales y armado.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="videos" class="seccion seccion--videos">
+    <h2>Videos</h2>
+    <p class="seccion__intro">Cuatro videos de dos minutos para conocer el proyecto.</p>
+    <div class="videos" id="lista-videos"></div>
+  </section>
+
+</main>
+
+<footer class="pie">
+  <svg class="pie__mosca" aria-hidden="true"><use href="#mosca"/></svg>
+  <div>
+    <p class="pie__nombre">¡Que no llegue la mosca!</p>
+    <p>Proyecto de titulación de Diseño Industrial, 2026. Ciudad de México.</p>
+    <p class="pie__nota">Las ilustraciones de las tarjetas y de la caja se hicieron con apoyo de IA, dirigidas y revisadas una por una.</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
