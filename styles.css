@@ -25,8 +25,10 @@ body {
   color: var(--tinta);
   font: 400 1.0625rem/1.6 "Nunito", system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
 }
 img { max-width: 100%; display: block; height: auto; }
+.portada > *, .seccion--problema > *, .prueba > *, .pieza > *, .resultados > * { min-width: 0; }
 h1, h2, h3 { font-family: "Fredoka", "Nunito", sans-serif; line-height: 1.1; margin: 0; }
 h2 { font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 700; color: var(--morado); }
 h3 { font-size: 1.45rem; font-weight: 600; }
@@ -156,7 +158,7 @@ a { color: inherit; }
 }
 .error__mosca { width: 120px; height: 100px; }
 .error h3 { font-size: 1.8rem; margin-bottom: 8px; }
-.figura--tablero img { max-width: 720px; }
+.figura--tablero img { max-width: min(720px, 100%); }
 
 /* pruébalo */
 .seccion--prueba { padding-bottom: clamp(56px, 9vw, 120px); }
@@ -251,7 +253,7 @@ a { color: inherit; }
   position: absolute; left: 0; right: 0; bottom: calc(var(--a) / 40 * 100%); height: calc((var(--b) - var(--a)) / 40 * 100%);
   background: color-mix(in srgb, var(--sol) 45%, transparent); border-block: 2px dashed var(--tinta);
 }
-.grafica__meta span { position: absolute; right: 6px; top: 2px; font-size: .8rem; font-weight: 800; }
+.grafica__meta span { position: absolute; left: 6px; top: 2px; font-size: .8rem; font-weight: 800; }
 .barra-g {
   position: relative; height: calc(var(--v) / 40 * 100%); background: var(--rosa); border: 3px solid var(--tinta); border-bottom: 0;
   border-radius: 12px 12px 0 0; transform-origin: bottom; transform: scaleY(var(--s, 1)); transition: transform .9s cubic-bezier(.2,.8,.2,1);
