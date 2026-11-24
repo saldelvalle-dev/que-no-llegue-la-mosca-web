@@ -285,7 +285,6 @@ a { color: inherit; }
 .pie__mosca { width: 110px; height: 92px; flex: none; }
 .pie__nombre { font: 700 1.5rem "Fredoka", sans-serif; color: var(--morado); margin-bottom: 4px; }
 .pie p { margin-bottom: 4px; }
-.pie__nota { font-size: .9rem; color: var(--morado-osc); }
 
 /* ---------- celular ---------- */
 @media (max-width: 900px) {
