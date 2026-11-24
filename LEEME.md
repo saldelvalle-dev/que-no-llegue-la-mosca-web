@@ -16,7 +16,6 @@ y abre http://localhost:8080
 
 Cada vez que se suba un cambio al repositorio, Vercel la vuelve a publicar sola.
 
-## Poner los videos
-1. Sube cada video a YouTube como **No listado**.
-2. Copia su ID: lo que va después de `v=` en el link (por ejemplo, en `youtube.com/watch?v=abc123XYZ` el ID es `abc123XYZ`).
-3. En `app.js`, arriba, pega el ID en `youtube: ""` del video que corresponda.
+## El video
+El promo de 1 minuto está en `video/promo.mp4` (con su portada `video/promo-portada.jpg`) y se reproduce directo en la página, sin YouTube.
+Para cambiarlo, reemplaza `video/promo.mp4` por la nueva versión con el mismo nombre y súbelo al repositorio.

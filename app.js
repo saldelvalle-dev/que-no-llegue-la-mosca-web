@@ -1,14 +1,5 @@
 /* ¡Que no llegue la mosca! · página del proyecto */
 
-// Videos: pega aquí el ID de YouTube de cada video cuando esté listo
-// (lo que va después de "v=" en el link, por ejemplo "dQw4w9WgXcQ").
-const VIDEOS = [
-  { titulo: "El problema", texto: "Qué es la contaminación cruzada y por qué empieza en casa.", youtube: "" },
-  { titulo: "Cómo se juega", texto: "Una partida, de INICIO a META.", youtube: "" },
-  { titulo: "El diseño", texto: "Del concepto a las tarjetas, el tablero y los botes.", youtube: "" },
-  { titulo: "El prototipo", texto: "Cómo se fabrica, cuánto cuesta y qué se probó.", youtube: "" },
-];
-
 const CARTAS = [
   { num: "02", cat: "papel", nombre: "Periódico", nivel: "F", texto: "Es papel. Se recicla para hacer papel nuevo." },
   { num: "06", cat: "papel", nombre: "Tubo de cartón del papel higiénico", nivel: "I", texto: "Es cartón limpio, aunque venga del baño." },
@@ -125,20 +116,6 @@ const LLEGADA = 14;
     }
   }, { threshold: 0.4 });
   io.observe(document.querySelector(".grafica"));
-})();
-
-/* ---------- videos ---------- */
-(function videos() {
-  const lista = document.getElementById("lista-videos");
-  VIDEOS.forEach((v, i) => {
-    const art = document.createElement("article");
-    art.className = "video";
-    const marco = v.youtube
-      ? `<iframe src="https://www.youtube-nocookie.com/embed/${v.youtube}" title="${v.titulo}" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>`
-      : `<div class="video__vacio"><svg aria-hidden="true"><use href="#mosca"/></svg><span>Video en preparación</span></div>`;
-    art.innerHTML = `<div class="video__marco">${marco}</div><h3>${i + 1}. ${v.titulo}</h3><p>${v.texto}</p>`;
-    lista.appendChild(art);
-  });
 })();
 
 /* ---------- pruébalo: la demo jugable ---------- */
